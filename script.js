@@ -4,7 +4,7 @@ const FIGURE_TYPES = {
     TRIANGLE: 'TRIANGLE',
 }
 
-const COLORS = [0xFFFF0B, 0xFF700B, 0x4286f4, 0x4286f4, 0xf441e8, 0x8dff6d, 0x41ccc9, 0xe03375, 0x95e032, 0x77c687, 0x43ba5b, 0x0ea3ba]
+const COLORS = [0xFFFF0B, 0xFF700B, 0x4286f4, 0x4286f4, 0xf441e8, 0x8dff6d, 0x41ccc9, 0xe03375, 0x95e032, 0x77c687, 0x43ba5b, 0x0ea3ba];
 
 const targetCircle = {
     x: 100,
@@ -77,7 +77,7 @@ function createTargetCircle(x, y, radius) {
 function createTargetRect(x, y, width, height) {
     const rect = new PIXI.Graphics();
         rect.lineStyle(5);
-        rect.drawRect(x, y, width, height)
+        rect.drawRect(x, y, width, height);
 
     const rectTexture = app.renderer.generateTexture(rect);
     const rectSprite = new PIXI.Sprite(rectTexture);
@@ -90,15 +90,14 @@ function createTargetRect(x, y, width, height) {
 }
 
 function createTargetTriangle(x, y, side) {
-    const triangle = new PIXI.Graphics()
-
     let h = side * (Math.sqrt(3)/2);
 
-    triangle.lineStyle(5)
-    triangle.moveTo(0, -h/2)
-    triangle.lineTo(-side/2, h/2)
-    triangle.lineTo(side/2, h/2)
-    triangle.lineTo(0, -h/2)
+    const triangle = new PIXI.Graphics();
+        triangle.lineStyle(5);
+        triangle.moveTo(0, -h/2);
+        triangle.lineTo(-side/2, h/2);
+        triangle.lineTo(side/2, h/2);
+        triangle.lineTo(0, -h/2);
     
     
     const textureTriangle = app.renderer.generateTexture(triangle);
@@ -122,8 +121,9 @@ function createCircle(x, y) {
     const circle = new PIXI.Graphics();
         circle.lineStyle(Math.random() * (40 - 5) + 5, COLORS[Math.floor(Math.random() * COLORS.length)], 1);
         circle.drawCircle(150, 100,30);
-        const textureCircle = app.renderer.generateTexture(circle);
-        const circleSprite = new PIXI.Sprite(textureCircle);
+
+    const textureCircle = app.renderer.generateTexture(circle);
+    const circleSprite = new PIXI.Sprite(textureCircle);
 
     circleSprite.interactive = true;
 
@@ -150,7 +150,7 @@ function createCircle(x, y) {
 function createRectangle(x, y) {
     const rect = new PIXI.Graphics();
         rect.beginFill(COLORS[Math.floor(Math.random() * COLORS.length)]);
-        rect.drawRect(0, 0, Math.floor(Math.random() * (90 - 50) + 50), Math.floor(Math.random() * (90 - 50) + 50))
+        rect.drawRect(0, 0, Math.floor(Math.random() * (90 - 50) + 50), Math.floor(Math.random() * (90 - 50) + 50));
         rect.endFill();
     
     const rectTexture = app.renderer.generateTexture(rect);
@@ -165,7 +165,7 @@ function createRectangle(x, y) {
     
     rectSprite.anchor.set(0.5);
 
-    rectSprite.rotation = Math.random() * (90 - 50) + 50
+    rectSprite.rotation = Math.random() * (90 - 50) + 50;
     
     rectSprite
         .on('pointerdown', onDragStart)
@@ -185,11 +185,11 @@ function createTriangle(x, y) {
     const h = side * (Math.sqrt(3)/2);
 
     const triangle = new PIXI.Graphics();
-        triangle.lineStyle(5, COLORS[Math.floor(Math.random() * COLORS.length)])
-        triangle.moveTo(0, -h/2)
-        triangle.lineTo(-side/2, h/2)
-        triangle.lineTo(side/2, h/2)
-        triangle.lineTo(0, -h/2)
+        triangle.lineStyle(5, COLORS[Math.floor(Math.random() * COLORS.length)]);
+        triangle.moveTo(0, -h/2);
+        triangle.lineTo(-side/2, h/2);
+        triangle.lineTo(side/2, h/2);
+        triangle.lineTo(0, -h/2);
     
     const  triangleTexture = app.renderer.generateTexture(triangle);
     const  triangleSprite = new PIXI.Sprite(triangleTexture);
@@ -202,7 +202,7 @@ function createTriangle(x, y) {
     triangleSprite.y = y;
     
     triangleSprite.anchor.set(0.5);
-    triangleSprite.rotation = Math.random() * (90 - 50) + 50
+    triangleSprite.rotation = Math.random() * (90 - 50) + 50;
 
     triangleSprite
         .on('pointerdown', onDragStart)
